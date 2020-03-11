@@ -12,8 +12,13 @@ import FollowScreen from './screens/followScreen';
 import PreViewScreen from './screens/preViewScreen';
 import EditScreen from './screens/editScreen';
 import GifScreen from './screens/gifScreen';
+import AuthLoginScreen from './screens/AuthLogin';
 
 const navigationOptions = () => ({ header: null });
+
+const AuthNavigator = createStackNavigator({
+  Auth: { screen: AuthLoginScreen, navigationOptions },
+});
 
 const HomeNavigator = createStackNavigator({
   Main: { screen: MainScreen, navigationOptions },
@@ -32,6 +37,7 @@ const HomeNavigator = createStackNavigator({
 
 export const Routers = createAppContainer(
   createSwitchNavigator({
+    Auth: AuthNavigator,
     Home: HomeNavigator,
   })
 );
